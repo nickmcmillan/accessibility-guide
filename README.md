@@ -1,8 +1,10 @@
 # Client Friendly Accessibility Guide
 
-This document is a work in progress. The author does not accept responsibility for any information herein. It is provided only as a guideline of best practices. This document attempts to avoid getting bogged down in technical details in order for it to be understood by a wider range of audiences
+This document intends to provide best practices in order to strive for (but not necessarily adhere to) WCAG 2.0 AA Accessibility Criteria. It attempts to avoid getting bogged down in technical details in order to be comprehensible by a wider audience.
 
-In order to strive for WCAG 2.0 AA Accessibility Criteria:
+This document is a work in progress. None of the authors or contributors, in any way whatsoever, can be responsible for your use of the information contained herein. Please take all steps necessary to ascertain that information contained is correct.
+
+
 * Ensure that throughout the development stage the designers, front-end developers, and content authors follow the best practice accessibility guidelines set out in this document
 * Ensure compliance using the WebAIM WAVE Chrome extension (http://wave.webaim.org/extension/)
 * (Optionally – not included in current scope of accessibility) test with the NVDA or JAWS screen reader software to ensure that the site can be accessed by screen reader
@@ -104,7 +106,14 @@ Ensuring a site is accessible is not only the work of a developer. Care should b
 * `alt` text must be equivalent and meaningful
 * Only use CSS background images for decoration - they are often not displayed in an operating systems' high contrast mode
 * Don't use background images for informative content
-* Inline SVG's are fine, so long as the SVG content includes a descriptive title tag, eg `<title>This will be read by a screen reader</title>`
+* Inline SVG's are fine, so long as the SVG content includes a descriptive `title` element with `id` attribute and a matching `aria-labelledby` attribute, eg;
+```
+<svg aria-labelledby="logo">
+    <title id="logo">This will be read by a screen reader</title>
+    ...
+</svg>
+```
+https://www.sitepoint.com/tips-accessible-svg/
 
 ### PDF Files
 * Content authors should note that the Australian Human Rights Commission (AHRC) advises that all PDF documents require an alternative format  which is optimised for accessibility, even if the PDFs are already perfectly accessible
