@@ -220,3 +220,4 @@ Further reading about accessible modals [here](https://developer.mozilla.org/en-
 It's impossible for an automated tool to test against all of the requirements set out in this document, but it can't hurt to use them anyway and often they're super helpful for identifying things like colour contrast issues or DOM issues such as multiple `<h1>` elements.
 * [tota11y](http://khan.github.io/tota11y/)
 * [WebAIM WAVE Chrome extension](http://wave.webaim.org/extension/)
+* [HTML CodeSniffer](http://squizlabs.github.io/HTML_CodeSniffer/)
