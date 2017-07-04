@@ -7,7 +7,7 @@ This document is a work in progress. None of the authors or contributors, in any
 
 It's recommended that all team members (though specifically designers, front-end developers, content authors) follow the best practice accessibility guidelines set out in this document.
 
-Note that it is the responsibility of the product owner to ensure that all "standard content" (that is client-authored content entered via a CMS) entered into the site is accessible based on the guidelines set out in this document (specifically note the [PDFs](#pdfs) and the [Language For Content Authors](#language-for-content-authors) sections within in this document).
+Note that it is the responsibility of the product owner to ensure that all "standard content" (that is client-authored content entered via a CMS) entered into the site is accessible based on the guidelines set out in this document (specifically note the [PDF Files](#pdf-files) and the [Language For Content Authors](#language-for-content-authors) sections within in this document).
 
 # Table of Contents
 
