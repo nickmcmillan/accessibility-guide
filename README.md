@@ -37,7 +37,7 @@ Note that it is the responsibility of the product owner to ensure that all "stan
     1. [Carousels](#carousels)
     1. [Autocomplete Fields](#autocomplete-fields)
     1. [Date Pickers](#date-pickers)
-    1. [Audio / Video](#audio-/-video)
+    1. [Audio / Video](#audio--video)
 1. [Mobile Browsing](#mobile-browsing)
 1. [Handy Tools](#handy-tools)
 
@@ -116,7 +116,7 @@ Ensuring a site is accessible is not only the work of a developer. Care should b
     ...
 </svg>
 ```
-More about SVG's  [here](https://weboverhauls.github.io/demos/svg/) and
+Read more about SVG's and accessibility  [here](https://weboverhauls.github.io/demos/svg/) and
 [here](https://www.sitepoint.com/tips-accessible-svg/).
 
 ### PDF Files
@@ -217,6 +217,6 @@ Further reading about accessible modals [here](https://developer.mozilla.org/en-
 
 
 # Handy Tools
-It's impossible for an automated tool to be able to test against all of the requirements set out in this document, but it can't hurt to use them anyway.
+It's impossible for an automated tool to test against all of the requirements set out in this document, but it can't hurt to use them anyway and often they're super helpful for identifying things like colour contrast issues or DOM issues such as multiple `<h1>` elements.
 * [tota11y](http://khan.github.io/tota11y/)
 * [WebAIM WAVE Chrome extension](http://wave.webaim.org/extension/)
