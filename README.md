@@ -4,7 +4,6 @@ This document intends to provide best practices in order to strive for (though n
 
 This document is a work in progress. None of the authors or contributors, in any way whatsoever, can be responsible for your use of the information contained herein. Please take all steps necessary to ascertain that information contained is correct.
 
-
 It's recommended that all team members (though specifically designers, front-end developers, content authors) follow the best practice accessibility guidelines set out in this document.
 
 Note that it is the responsibility of the product owner to ensure that all "standard content" (that is client-authored content entered via a CMS) entered into the site is accessible based on the guidelines set out in this document (specifically note the [PDF Files](#pdf-files) and the [Language For Content Authors](#language-for-content-authors) sections within in this document).
@@ -13,33 +12,34 @@ Note that it is the responsibility of the product owner to ensure that all "stan
 
 1. [Visual Design](#visual-design)
     1. [Colour Contrast](#colour-contrast)
-    1. [Link Presentation](#link-presentation)
-    1. [Moving Content](#moving-content)
-    1. [Zooming](#zooming)
-    1. [Geospacial Data](#geospacial-data)
-1. [Navigation System](#navigation-system)
-    1. [Linking](#linking)
     1. [Buttons](#buttons)
-    1. [Skip Links](#skip-links)
-1. [Content](#content)
+    2. [Link Presentation](#link-presentation)
+    3. [Moving Content](#moving-content)
+    4. [Zooming](#zooming)
+    5. [Geospacial Data](#geospacial-data)
+2. [Navigation System](#navigation-system)
+    1. [Linking](#linking)
+    2. [Skip Links](#skip-links)
+3. [Content](#content)
     1. [Language For Content Authors](#language-for-content-authors)
-    1. [Images](#images)
-    1. [PDF Files](#pdf-files)
-    1. [Data Tables](#data-tables)
-    1. [Forms](#forms)
-1. [Developing](#developing)
+    2. [Images](#images)
+    3. [PDF Files](#pdf-files)
+    4. [Data Tables](#data-tables)
+    5. [Forms](#forms)
+    5. [Authentication](#authentication)
+4. [Developing](#developing)
     1. [HTML](#html)
-    1. [CSS](#css)
-    1. [JavaScript](#javascript)
-1. [Common Components](#common-components)
+    2. [CSS](#css)
+    3. [JavaScript](#javascript)
+5. [Common Components](#common-components)
     1. [Modals](#modals)
-    1. [Form Dropdowns](#form-dropdowns)
-    1. [Carousels](#carousels)
-    1. [Autocomplete Fields](#autocomplete-fields)
-    1. [Date Pickers](#date-pickers)
-    1. [Audio / Video](#audio--video)
-1. [Mobile Browsing](#mobile-browsing)
-1. [Handy Tools](#handy-tools)
+    2. [Form Dropdowns](#form-dropdowns)
+    3. [Carousels](#carousels)
+    4. [Autocomplete Fields](#autocomplete-fields)
+    5. [Date Pickers](#date-pickers)
+    6. [Audio / Video](#audio--video)
+6. [Mobile Browsing](#mobile-browsing)
+7. [Handy Tools](#handy-tools)
 
 
 
@@ -52,9 +52,20 @@ Ensuring a site is accessible is not only the work of a developer. Care should b
 * All Large text 14px bold or 18px and above will be compliant to a 3.0:1 contrast ratio
 * Note that logos or text within a logo have no contrast requirement
 
+### Buttons
+* All buttons need descriptive text; they cannot contain icons/symbols alone. The descriptive text doesn't need to be visible. It can be added using the aria-label attribute, eg `aria-label="This will be read by a screen reader"`
+* All buttons and links need both pointer-hover and keyboard-focus states
+* Focused v unfocused state colour changes must pass contrast of >= 3:1
+* If you decide to do an outline on focus, aim for a width of >= 2px. The colour of the focus outline must:
+  1) Be >=3:1 with the colour it replaces
+  1) Be >=3:1 with the inside colour
+  1) Be >=3:1 with the outside colour
+
+
 ### Link Presentation
 * Anchor links within body text must be underlined by default. The only exception is if the colour contrast of the link is 3.0:1 to the surrounding paragraph text AND 3.0:1 the background colour
 * Underline links on mouse hover and keyboard focus
+* Targets must be minimum 24x24px (AA) or 44x44 (AAA) but try aim for the larger size for better usability. Inline elements are an exception.
 
 ### Moving Content
 * Moving content is distracting and is an issue for users with attention deficit disorders, therefore a stop, pause, or hide option must be available
@@ -70,6 +81,9 @@ Ensuring a site is accessible is not only the work of a developer. Care should b
 * Any information contained within a map (like the Google Maps JS API) requires a text alternative. Think about how Google Maps does this with the step by step directions list
 * Communicating information via colours can interfaces inaccessible to colour blind users. Don’t rely on colours alone if the colours are similar, use figures or patterns as well. Think about online flight booking interfaces; typically seats are both colour-coded as well as include a symbol or pattern within each seat to aid colour blind users
 
+### Consistency of location for support channels
+* Support channels (think phone number, contact form, opening hours, chatbot, social media links) should be positioned consistently in the layout across all pages.
+
 # Navigation System
 
 ### Linking
@@ -77,11 +91,6 @@ Ensuring a site is accessible is not only the work of a developer. Care should b
 * For navigation menus, never change the sort order between pages. All pages need the same navigation system
 * Some "megamenus" also tab through the sub-level items too - this is a requirement if there’s no other way to access these sub-level pages. However, if you’ve got a section landing page which contains these same links, then it’s not necessary to tab through them in the "megamenu". Example [Auspost](https://auspost.com.au/) you can tab through the primary navigation items, but the megamenu links are only accessible for mouse users - however this is OK because the sub-level page links within the megamenu are also available on each section landing page
 * Links that direct a user away from the current site (external links) should inform users of this functionality via title, tooltip or content within the anchor (e.g. "link opens in new window"). This requirement concerns both developers as well as content authors who can modify the website via a CMS
-
-### Buttons
-* All buttons need descriptive text, they cannot contain icons/symbols alone. The descriptive text doesn't need to be visible. It can be added using the aria-label attribute, eg `aria-label="This will be read by a screen reader"`
-* All buttons and links need both mouse-hover and keyboard-focus states
-
 
 ### Skip Links
 * These are hidden links that are only accessible via keyboard and are used to bypass blocks of content (like the nav)
@@ -144,7 +153,16 @@ Read more about SVG's and accessibility  [here](https://weboverhauls.github.io/d
 * If the form contains a CAPTCHA ensure a text version provided. Eg 2+1=? is more accessible than an image containing text
 * Standard form elements (such as dropdown `<select>` boxes) will be used where possible, and plugins which enable custom styling should be avoided
 * All forms will use a submit button (forms should not submit upon changing selection/options) as this can be problematic for keyboard users
+* Avoid redundant entry. A user shouldn't have to enter the same information twice. For example; some checkout forms have a checkbox labeled "Shipping address is the same as billing address". This is a great solution to avoid reduntant entry.
 
+### Authentication
+* Make it possible to authenticate without remembering, transcribing, or manipulating any information. What does this mean:
+* If you have a 2FA input field, use the attribute `autocomplete="one-time-code"` which should allow the user to autofill the field when the 2FA code lands in their SMS inbox
+* Allow biometrics to auto-fill login forms. Most smartphones have these built in. This saves the user having to remember their credentials.
+* Let password managers and browser auto-fill do their thing. Ensure that input fields have the appropriate attributes to help facilitate this.
+* Don't prevent the user from copying or pasting in the password field.
+* Consider an OAuth login method (like login with Google, etc).
+* 
 
 # Developing
 
